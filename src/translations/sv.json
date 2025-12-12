@@ -1,0 +1,69 @@
+{
+  "me": {
+    "greeting": "Hej!",
+    "greeting_longer": "Hejsan! Jag heter...",
+    "role": "Frontendutvecklare",
+    "location": "Stockholm, Sverige",
+    "skills": {
+      "title": "Färdigheter"
+    },
+    "projects": {
+      "title": "Större projekt",
+      "problem": "Utmaning",
+      "solution": "Lösning",
+      "hives": {
+        "title": "Hives.co",
+        "description": "Din bästa plattform för att sömlöst samla in och fånga värdefulla idéer, insikter och feedback från alla du behöver, allt på en centraliserad plats. Oavsett om du ber om input från kunder, anställda eller partners, effektiviserar Hives.co processen, vilket gör det enkelt och effektivt att samla in viktig information.",
+        "stats": {
+          "old_frontend": "Gammal JS Frontend",
+          "old_frontend_helper": "före refaktorering",
+          "lines_of_code": "rader kod",
+          "new_frontend": "Ny TS Frontend",
+          "new_frontend_helper": "efter refaktorering, inkl. typsäkerhet",
+          "team_size": "Utvecklingsteamets storlek",
+          "including_myself": "inklusive mig själv"
+        },
+        "examples": {
+          "importing": {
+            "problem": "I hives kan både Sidor och Mappar innehålla andra användarskapade objekt, men jag märkte att möjligheten att importera befintliga objekt direkt inifrån föräldern endast erbjöds specifikt för att importera Insamlingar till Sidor, trots att vi ville att användare skulle se både Sidor och Mappar på liknande sätt, vad gäller objektrelationer.",
+            "solution": "Jag skapade en generaliserad, återanvändbar komponent för att söka och importera befintliga objekt till en given förälder (Sida/Mapp), utan att behöva hitta, visa och flytta objektet manuellt."
+          },
+          "translations": {
+            "problem": "Jag märkte att översättning via en LLM ledde till felaktiga ordklasser på grund av engelska homonymer som 'comment' ('en kommentar' kontra 'att kommentera'), vilket vi inte hade tagit hänsyn till. Jag gjorde research som visade vikten av att ge bättre kontext till externa översättare (mänskliga eller LLM).",
+            "solution": "Jag utökade namespaces för att bland annat separera substantiv/verb-homonymer, vilket gjorde maskinöversättningen mer korrekt. Jag skapade också en struktur för vidare manuell definition av översättningar, för att bibehålla kontroll där det behövs."
+          },
+          "replies": {
+            "problem": "Användare svarar på kommentarer i hives via en dialog med ett textfält som dyker upp, men de behöver ofta kasta sina osparade ändringar mitt i skrivandet, i och med att de stänger dialogen för att påminna sig om vad kommentaren sa ordagrant.",
+            "solution": "Jag lade till en kopia av den ursprungliga kommentaren i svarsdialogen, så att sammanhanget alltid finns tillgängligt."
+          },
+          "tags": {
+            "problem": "Trots att sortering och filtrering av Bidrag är vanligt i appen, tillät endast en tabellvy sortering och tilldelning av egna Taggar. Dessa Taggar skapades, hanterades och användes endast i denna vy, och användes inte någon annanstans.",
+            "solution": "För att göra UX:en för Taggar mer konsekvent gjorde jag Taggar till en standarddel av komponenten för Bidragsfiltrering. Jag gjorde sedan taggtilldelningen valfri, för att möjliggöra bredare, ren Tagg-redigering, så att vi kunde erbjuda Tagg-CRUD där man använder Taggar som ett filtreringsalternativ."
+          },
+          "explainers": {
+            "problem": "Vissa användare behövde enklare tillgång till längre funktionsförklaringar, utan att orsaka för mycket visuellt brus. Vi bestämde att förklaringarna skulle vara stängbara, och som standard bara visas en gång per användare.",
+            "solution": "Eftersom jag visste att förklaringarna skulle användas ofta ville jag ha en självspelande Explainer-komponent, så att den skulle bli lättanvänd. Samtidigt visste jag att exakt placering av öppningsknappen i förhållande till texten skulle variera mycket. Jag valde därför att använda portalling via en DOM-referens för positionering, så att föräldrakomponenten kan kontrollera var knappen hamnar, utan att behöva innehålla logiken för att bara visa texten en gång per användare."
+          },
+          "small_refactor": {
+            "problem": "Vi behövde ett mer centraliserat tillvägagångssätt för modal-/dialoghantering och styling, för att göra dessa enklare att underhålla, samt säkerställa stilmässig enhetlighet",
+            "solution": "Jag abstraherade vår modal-/dialoganvändning till en ny egen komponent, vilket gav oss global, mer lättskött kontroll över våra modaler/dialoger."
+          },
+          "complete_refactor": {
+            "problem": "Vi behövde migrera vårt centrala designbibliotek, Chakra UI, från version 2.0 till 3.0, vilket innebar omfattande syntaktiska förändringar, på grund av deras nya composite component pattern. Vid den tiden fanns det inga dedikerade LLM-hjälpmedel som ett MCP-upplägg, vilket gjorde automatisering orimligt. Vi tvingades därför ta oss an en mer eller mindre komplett, manuell refaktorering av hela vår frontend, som låg på 42,6 k rader kod.",
+            "solution": "För denna fullständiga frontend-översyn försökte vi låna allt vi kunde från den gamla kodbasen, samtidigt som vi antog Chakra UI 3.0-syntaxen och tog tillfället i akt att modernisera flera nyckelområden. Genom att konvertera till Typescript minskade vi risken för buggar avsevärt. Trots den förväntade overheaden som följer med typdefinitioner är vår nya frontend minst 3 k rader kod kortare. Vi uppnådde detta genom vår mycket förbättrade Separation of Concerns, vilket gjorde vår kod mer modulär och mindre redundant."
+          }
+        }
+      }
+    },
+    "units": {
+      "years": "år",
+      "lines_of_code": "rader kod",
+      "k_lines_of_code": "k rader kod",
+      "devs": "utvecklare"
+    },
+    "github_calendar": {
+      "title": "Personlig GitHub",
+      "caveat": " (fritidsbidrag)"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "me": {
+    "greeting": "Hi!",
+    "greeting_longer": "Hi there! I'm...",
+    "role": "Frontend Developer",
+    "location": "Stockholm, Sweden",
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Notable Projects",
+      "problem": "Challenge",
+      "solution": "Solution",
+      "hives": {
+        "title": "Hives.co",
+        "description": "Your go-to platform for seamlessly collecting and capturing valuable ideas, insights, and feedback from anyone you need, all in one centralized location. Whether you're soliciting input from customers, employees, or stakeholders, Hives.co streamlines the process, making it easy and efficient to gather crucial information.",
+        "stats": {
+          "old_frontend": "Old JS Frontend",
+          "old_frontend_helper": "before refactor",
+          "lines_of_code": "lines of code",
+          "new_frontend": "New TS Frontend",
+          "new_frontend_helper": "after refactor, incl. type safety",
+          "team_size": "Dev Team Size",
+          "including_myself": "myself included"
+        },
+        "examples": {
+          "importing": {
+            "problem": "Both Pages and Folders work as containers for other user created items, but I noticed that the ability to import existing items directly from within the parent was only offered specifically for importing Collections to Pages, despite us wanting users to view both Pages and Folders similarly, in regards to item relations.",
+            "solution": "I made a generalized, reusable component for searching and importing existing items into a given parent Page/Folder, without needing to individually locate, view and reparent said item manually."
+          },
+          "translations": {
+            "problem": "I noticed that translation via an LLM led to incorrect word classes due to English homonyms such as “comment” (“a comment” versus “to comment”), which we hadn't accounted for. I did research that highlighted the importance of providing better context for external translators (human or LLM).",
+            "solution": "I expanded the namespaces to, among other things, separate noun/verb homonyms, which made machine translation more accurate. I also created a structure for further manual definition of translations to maintain control where needed."
+          },
+          "replies": {
+            "problem": "Users reply to comments through a dialog with a text field that pops up, but they often need to discard their unsaved changes in the middle of writing when they close the dialog to remind themselves of what the comment said verbatim.",
+            "solution": "I added a copy of the original comment inside the reply dialog so the context is always visible."
+          },
+          "tags": {
+            "problem": "Despite sorting and filtering Contributions being common in the app, only one table view allowed for sorting them by and assigning them custom Tags. These Tags were only created, managed and used within this one view, and were not acknowledged elsewhere.",
+            "solution": "To make the Tag UX more consistent, I made the custom Tags a standard part of the Contribution filtering component. I then made the Tag assignment part of the component optional, to enable a broader, pure Tag editing usage, allowing us to provide Tag CRUD alongside Tags as a Contribution filtering option."
+          },
+          "explainers": {
+            "problem": "Some users needed easier access to lengthier feature explainers, without causing too much visual bloat. We decided that we needed the explainers to be closable, and by default only be shown once per user.",
+            "solution": "Since I knew the explainers would be used frequently, I wanted a self-sufficient Explainer component for ease of use. At the same time, I knew the exact placement of the open button in relation to the text would vary a lot. I therefore chose to use portalling via a DOM reference for positioning, allowing the parent component to control where the button ends up, without needing to host the logic for only showing the text once per user."
+          },
+          "small_refactor": {
+            "problem": "We needed a more centralized approach for modal/dialog management and styling, to make these easier to maintain and to ensure styling coherency",
+            "solution": "I abstracted our modal/dialog usage into the use of a new custom component, giving us a global, more easily maintained control over our modals/dialogs."
+          },
+          "complete_refactor": {
+            "problem": "We needed to migrate our core design library Chakra UI from version 2.0 to 3.0, which featured sweeping syntactic changes, due to their new composite component pattern. At the time, there were no dedicated LLM aids available like an MCP setup, making automation infeasible. We were thus forced to take on a more or less complete, manual refactoring of our entire frontend, which sat at 42.6 k lines of code.",
+            "solution": "For this complete frontend overhaul, we attempted to borrow what we could from the legacy codebase, whilst still adopting the Chakra UI 3.0 syntax and taking the opportunities to modernize several key areas. By converting to Typescript, we substantially reduced the risk of bugs. Despite the expected overhead that comes with type definitions, our new frontend is at least 3 k lines of code shorter. We achieved this through our vastly improved Separation of Concerns, making our code more modular and less redundant."
+          }
+        }
+      }
+    },
+    "units": {
+      "years": "years",
+      "lines_of_code": "lines of code",
+      "k_lines_of_code": "k lines of code",
+      "devs": "developers"
+    },
+    "github_calendar": {
+      "title": "Personal GitHub",
+      "caveat": " (freetime contributions)"
+    }
+  }
+}
