@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Container,
   Heading,
   HStack,
   SimpleGrid,
@@ -24,7 +25,7 @@ import GithubHeatmap from "./GithubHeatmap";
 const Bio = () => {
   const { t } = useTranslation();
   return (
-    <Stack gap="8">
+    <Container justifySelf="center" maxW="4xl">
       <HStack alignItems="flex-start" gap="8" maxW="full">
         <Avatar.Root
           boxSize={{ base: "35vw", md: "20vw", lg: "12vw" }}
@@ -56,9 +57,7 @@ const Bio = () => {
             </Heading>
           </Stack>
           <HStack gap="8" alignItems="flex-start">
-
             <Stack gap="8" justifyContent="space-between">
-
               <Stat.Root>
                 <Stat.Label fontSize="xl" whiteSpace="nowrap">
                   {t("me.role")}
@@ -84,14 +83,13 @@ const Bio = () => {
                 </HStack>
                 <Contact />
               </Stack>
-
             </Stack>
 
             <GithubHeatmap />
           </HStack>
         </Stack>
       </HStack>
-    </Stack>
+    </Container>
   );
 };
 

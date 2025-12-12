@@ -9,7 +9,7 @@ const MainPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Stack gap="16" alignItems="center">
+    <Stack gap="16" alignItems="flex-start">
       <Bio />
       <Stack gap="8" width="full" alignItems="center">
         <SectionHeading>{t("me.skills.title")}</SectionHeading>
