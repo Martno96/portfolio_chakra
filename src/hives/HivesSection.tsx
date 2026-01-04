@@ -67,14 +67,14 @@ const HivesSection = () => {
             },
             {
               label: t("me.projects.hives.stats.old_frontend"),
-              value: "42 600",
+              value: t("me.projects.hives.stats.old_frontend_code_count"),
               unit: t("me.units.lines_of_code"),
               helperText: t("me.projects.hives.stats.old_frontend_helper"),
               //color: "yellow.500",
             },
             {
               label: t("me.projects.hives.stats.new_frontend"),
-              value: "39 600",
+              value: t("me.projects.hives.stats.new_frontend_code_count"),
               unit: t("me.units.lines_of_code"),
               helperText: t("me.projects.hives.stats.new_frontend_helper"),
               //color: "blue.500",

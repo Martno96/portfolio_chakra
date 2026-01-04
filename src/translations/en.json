@@ -17,9 +17,10 @@
         "stats": {
           "old_frontend": "Old JS Frontend",
           "old_frontend_helper": "before refactor",
-          "lines_of_code": "lines of code",
+          "old_frontend_code_count": "42.6 k",
           "new_frontend": "New TS Frontend",
           "new_frontend_helper": "after refactor, incl. type safety",
+          "new_frontend_code_count": "39.6 k",
           "team_size": "Dev Team Size",
           "including_myself": "myself included"
         },
@@ -45,7 +46,7 @@
             "solution": "Since I knew the explainers would be used frequently, I wanted a self-sufficient Explainer component for ease of use. At the same time, I knew the exact placement of the open button in relation to the text would vary a lot. I therefore chose to use portalling via a DOM reference for positioning, allowing the parent component to control where the button ends up, without needing to host the logic for only showing the text once per user."
           },
           "small_refactor": {
-            "problem": "We needed a more centralized approach for modal/dialog management and styling, to make these easier to maintain and to ensure styling coherency",
+            "problem": "We needed a more centralized approach for modal/dialog management and styling, to make these easier to maintain and to ensure styling coherency.",
             "solution": "I abstracted our modal/dialog usage into the use of a new custom component, giving us a global, more easily maintained control over our modals/dialogs."
           },
           "complete_refactor": {
@@ -58,7 +59,6 @@
     "units": {
       "years": "years",
       "lines_of_code": "lines of code",
-      "k_lines_of_code": "k lines of code",
       "devs": "developers"
     },
     "github_calendar": {

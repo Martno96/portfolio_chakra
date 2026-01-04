@@ -17,9 +17,10 @@
         "stats": {
           "old_frontend": "Gammal JS Frontend",
           "old_frontend_helper": "före refaktorering",
-          "lines_of_code": "rader kod",
+          "old_frontend_code_count": "42600",
           "new_frontend": "Ny TS Frontend",
           "new_frontend_helper": "efter refaktorering, inkl. typsäkerhet",
+          "new_frontend_code_count": "39600",
           "team_size": "Utvecklingsteamets storlek",
           "including_myself": "inklusive mig själv"
         },
@@ -45,7 +46,7 @@
             "solution": "Eftersom jag visste att förklaringarna skulle användas ofta ville jag ha en självspelande Explainer-komponent, så att den skulle bli lättanvänd. Samtidigt visste jag att exakt placering av öppningsknappen i förhållande till texten skulle variera mycket. Jag valde därför att använda portalling via en DOM-referens för positionering, så att föräldrakomponenten kan kontrollera var knappen hamnar, utan att behöva innehålla logiken för att bara visa texten en gång per användare."
           },
           "small_refactor": {
-            "problem": "Vi behövde ett mer centraliserat tillvägagångssätt för modal-/dialoghantering och styling, för att göra dessa enklare att underhålla, samt säkerställa stilmässig enhetlighet",
+            "problem": "Vi behövde ett mer centraliserat tillvägagångssätt för modal-/dialoghantering och styling, för att göra dessa enklare att underhålla, samt säkerställa stilmässig enhetlighet.",
             "solution": "Jag abstraherade vår modal-/dialoganvändning till en ny egen komponent, vilket gav oss global, mer lättskött kontroll över våra modaler/dialoger."
           },
           "complete_refactor": {
@@ -58,7 +59,6 @@
     "units": {
       "years": "år",
       "lines_of_code": "rader kod",
-      "k_lines_of_code": "k rader kod",
       "devs": "utvecklare"
     },
     "github_calendar": {
