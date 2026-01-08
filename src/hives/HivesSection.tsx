@@ -1,6 +1,7 @@
 import {
   Bleed,
   Container,
+  Flex,
   HStack,
   Image,
   Link,
@@ -21,67 +22,76 @@ const HivesSection = () => {
   //TODO: implement langauge provider
   const lang = "en";
 
-  //    <Container maxW="7xl" pb="16" pt="0" overflow="hidden">
-
   return (
-    <Stack gap="16" py="8" mx="20">
-      <HStack
-        alignItems="flex-start"
-        justifyContent="space-between"
-        width="full"
-      >
-        <Stack gap="8">
-          {resolvedTheme === "light" ? (
-            <Image
-              maxW="200px"
-              src="static/hives_dark.png"
-              alt="Hives screenshot light mode"
-            />
-          ) : (
-            <Image
-              maxW="200px"
-              src="static/hives_light.png"
-              alt="Hives screenshot dark mode"
-            />
-          )}
-          <Stack gap="2">
-            <Text maxW="650px" fontSize="md">
-              {t("me.projects.hives.description")}
-            </Text>
-            <Link href="https://hives.co" color="fg.subtle">
-              {t("me.projects.hives.title")}
-              <FontAwesomeIcon
-                icon={faExternalLink}
-                style={{ marginLeft: "4px", fontSize: "12px" }}
+    <Stack gap="16" py="8">
+      <Container justifySelf="center" maxW="8xl">
+        <HStack
+          alignItems="flex-start"
+          justifyContent="space-between"
+          width="full"
+          flexWrap="wrap"
+          rowGap="12"
+          gap="12"
+        >
+          <Stack gap="8">
+            {resolvedTheme === "light" ? (
+              <Image
+                maxW="200px"
+                src="static/hives_dark.png"
+                alt="Hives screenshot light mode"
               />
-            </Link>
+            ) : (
+              <Image
+                maxW="200px"
+                src="static/hives_light.png"
+                alt="Hives screenshot dark mode"
+              />
+            )}
+            <Stack gap="2">
+              <Text
+                width="full"
+                maxW={{ base: "full", lg: "600px" }}
+                fontSize="md"
+              >
+                {t("me.projects.hives.description")}
+              </Text>
+              <Link href="https://hives.co" color="fg.subtle">
+                {t("me.projects.hives.title")}
+                <FontAwesomeIcon
+                  icon={faExternalLink}
+                  style={{ marginLeft: "4px", fontSize: "12px" }}
+                />
+              </Link>
+            </Stack>
           </Stack>
-        </Stack>
-        <Stats
-          stats={[
-            {
-              label: t("me.projects.hives.stats.team_size"),
-              value: "2",
-              unit: t("me.units.devs"),
-              helperText: t("me.projects.hives.stats.including_myself"),
-            },
-            {
-              label: t("me.projects.hives.stats.old_frontend"),
-              value: t("me.projects.hives.stats.old_frontend_code_count"),
-              unit: t("me.units.lines_of_code"),
-              helperText: t("me.projects.hives.stats.old_frontend_helper"),
-              //color: "yellow.500",
-            },
-            {
-              label: t("me.projects.hives.stats.new_frontend"),
-              value: t("me.projects.hives.stats.new_frontend_code_count"),
-              unit: t("me.units.lines_of_code"),
-              helperText: t("me.projects.hives.stats.new_frontend_helper"),
-              //color: "blue.500",
-            },
-          ]}
-        />
-      </HStack>
+          <Flex minW="250px">
+            <Stats
+              stats={[
+                {
+                  label: t("me.projects.hives.stats.team_size"),
+                  value: "2",
+                  unit: t("me.units.devs"),
+                  helperText: t("me.projects.hives.stats.including_myself"),
+                },
+                {
+                  label: t("me.projects.hives.stats.old_frontend"),
+                  value: t("me.projects.hives.stats.old_frontend_code_count"),
+                  unit: t("me.units.lines_of_code"),
+                  helperText: t("me.projects.hives.stats.old_frontend_helper"),
+                  //color: "yellow.500",
+                },
+                {
+                  label: t("me.projects.hives.stats.new_frontend"),
+                  value: t("me.projects.hives.stats.new_frontend_code_count"),
+                  unit: t("me.units.lines_of_code"),
+                  helperText: t("me.projects.hives.stats.new_frontend_helper"),
+                  //color: "blue.500",
+                },
+              ]}
+            />
+          </Flex>
+        </HStack>
+      </Container>
       <ScreencapCarousel
         items={[
           {

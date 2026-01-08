@@ -25,7 +25,7 @@ import GithubHeatmap from "./GithubHeatmap";
 const Bio = () => {
   const { t } = useTranslation();
   return (
-    <Container justifySelf="center" maxW="4xl">
+    <Container justifySelf="center" maxW="8xl">
       <HStack alignItems="flex-start" gap="8" maxW="full">
         <Avatar.Root
           boxSize={{ base: "35vw", md: "20vw", lg: "12vw" }}

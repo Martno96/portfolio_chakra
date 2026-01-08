@@ -5,7 +5,7 @@ const SectionHeading = ({ children }: { children: string }) => {
   return (
     <HStack gap="8" width="full">
       <Separator flexGrow="1" />
-      <Heading fontSize="2xl">{children}</Heading>
+      <Heading fontSize="xl">{children}</Heading>
       <Separator flexGrow="1" />
     </HStack>
   );

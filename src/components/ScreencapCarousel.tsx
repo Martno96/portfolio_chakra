@@ -31,62 +31,48 @@ type Step = {
 
 const ScreencapCarousel = ({ items }: { items: Step[] }) => {
   const { t } = useTranslation();
-  //Chakra carousel with short text under the images or a tooltip
+
   return (
-    <Carousel.Root
-      slideCount={items.length}
-      gap="2"
-      // mx={{ base: "auto", sm: "-12" }}
-    >
-      <Carousel.Control justifyContent="center" gap="4" width="full">
-        <Carousel.PrevTrigger zIndex="dropdown" asChild>
+    <Carousel.Root slideCount={items.length} gap="2">
+      <Carousel.Control justifyContent="center" gap="2" width="full">
+        <Carousel.PrevTrigger
+          display={{ base: "none", md: "block" }}
+          zIndex="dropdown"
+          asChild
+        >
           <IconButton rounded="full" size="sm" variant="subtle">
             <FontAwesomeIcon icon={faChevronLeft} />
           </IconButton>
         </Carousel.PrevTrigger>
-
-        <Stack>
+        <Stack maxWidth="90vw">
           <Carousel.ItemGroup width="full">
             {items.map((item, index) => (
               <Carousel.Item key={index} index={index}>
-                <Card.Root>
-                  <Card.Body>
+                <Card.Root pb="6">
+                  <Card.Body width="full">
                     <SimpleGrid
-                      columns={{ base: 1, md: 3 }}
+                      columns={{ base: 3, md: 5 }}
                       gap="8"
                       width="full"
                     >
-                      <GridItem
-                        colSpan={2}
-                        height="full"
-                        bg="bg.emphasized"
-                        rounded="lg"
-                      >
-                        <Flex
-                          align="center"
-                          justify="center"
-                          height="100%"
-                          p="4"
-                        >
+                      <GridItem colSpan={3} bg="bg.muted" rounded="lg">
+                        <Flex align="center" justify="center" height="100%">
                           <Image
                             src={item.src}
                             alt={item.alt}
                             w="100%"
-                            h="60vh"
+                            h={{ base: "30vh", md: "50vh" }}
                             objectFit="contain"
                           />
                         </Flex>
                       </GridItem>
-                      <GridItem colSpan={1}>
+                      <GridItem colSpan={{ base: 3, md: 2 }}>
                         <ScrollArea.Root
-                          height="70vh"
+                          maxHeight={{ base: "40vh", md: "50vh" }}
                           variant="always"
                         >
                           <ScrollArea.Viewport>
-                            <ScrollArea.Content
-                              paddingEnd="3"
-                              overflowY="scroll"
-                            >
+                            <ScrollArea.Content paddingEnd="3">
                               <Stack gap="4">
                                 <Stack gap="2">
                                   <Heading fontSize="md" color="fg.subtle">
@@ -107,6 +93,7 @@ const ScreencapCarousel = ({ items }: { items: Step[] }) => {
                               </Stack>
                             </ScrollArea.Content>
                           </ScrollArea.Viewport>
+                          <ScrollArea.Scrollbar />
                         </ScrollArea.Root>
                       </GridItem>
                     </SimpleGrid>
@@ -115,7 +102,7 @@ const ScreencapCarousel = ({ items }: { items: Step[] }) => {
               </Carousel.Item>
             ))}
           </Carousel.ItemGroup>
-          <Carousel.IndicatorGroup>
+          <Carousel.IndicatorGroup mt="-6">
             {items.map((item, index) => (
               <Carousel.Indicator
                 key={index}
@@ -125,6 +112,7 @@ const ScreencapCarousel = ({ items }: { items: Step[] }) => {
                   outline: "2px solid currentColor",
                   outlineOffset: "2px",
                 }}
+                zIndex="dropdown"
               >
                 <Image
                   w="20"
@@ -137,8 +125,11 @@ const ScreencapCarousel = ({ items }: { items: Step[] }) => {
             ))}
           </Carousel.IndicatorGroup>
         </Stack>
-
-        <Carousel.NextTrigger zIndex="dropdown" asChild>
+        <Carousel.NextTrigger
+          display={{ base: "none", md: "block" }}
+          zIndex="dropdown"
+          asChild
+        >
           <IconButton rounded="full" size="sm" variant="subtle">
             <FontAwesomeIcon icon={faChevronRight} />
           </IconButton>
