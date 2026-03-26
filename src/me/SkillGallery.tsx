@@ -1,93 +1,98 @@
-import { Card, Container, Icon, SimpleGrid, Text } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReact, faJs, faNodeJs } from "@fortawesome/free-brands-svg-icons";
-import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
-import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
-const chakraLogoPath = "/static/logo.svg";
-const typescriptLogoPath = "/static/typescript_logo.png";
+import { Box, Card, Container, HStack } from "@chakra-ui/react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { skills } from "./skills";
 
-const ImageIcon = ({ src, alt }: { src: string; alt: string }) => (
-  <Icon
-    filter="grayscale(1) brightness(60%) contrast(500%)"
-    _dark={{
-      filter: "invert(1) grayscale(1) brightness(400%) contrast(90%)",
-    }}
-    boxSize="2.75em"
-    className="fa-fw"
+type Skill = {
+  name: string;
+  icon: React.ReactNode;
+};
+
+const SkillList = ({ skills }: { skills: Skill[] }) => (
+  <HStack
+    width="fit-content"
+    gap="4"
+    alignItems="flex-start"
+    justifyContent="flex-start"
+    style={{ willChange: "transform" }}
   >
-    <img src={src} alt={alt} />
-  </Icon>
+    {skills.map((skill) => (
+      <Card.Root
+        size="sm"
+        cursor="default"
+        key={skill.name}
+        textAlign="center"
+        variant="outline"
+        border="none"
+        bg="transparent"
+        style={{ willChange: "transform" }}
+      >
+        <Card.Body
+          gap="3"
+          alignItems="center"
+          justifyContent="space-around"
+          py="3"
+          height="full"
+          style={{ willChange: "transform" }}
+        >
+          <Box opacity="0.5" style={{ willChange: "transform" }}>
+            {skill.icon}
+          </Box>
+          <Card.Description
+            width="min-content"
+            minW="100px"
+            fontSize={skill.name.length > 12 ? "sm" : "md"}
+            color="fg.muted"
+            style={{ willChange: "transform" }}
+          >
+            {skill.name}
+          </Card.Description>
+        </Card.Body>
+      </Card.Root>
+    ))}
+  </HStack>
 );
 
 const SkillGallery = () => {
-  //TODO: switch to proper svg icons for TS and Chakra UI
+  const ref = useRef(null);
+  const [galleryWidth, setGalleryWidth] = useState(0);
 
-  const skills = [
-    {
-      name: "React",
-      icon: <FontAwesomeIcon icon={faReact} size="3x" className="fa-fw" />,
-    },
-    {
-      name: "UX/UI",
-      icon: (
-        <FontAwesomeIcon icon={faHandPointer} size="3x" className="fa-fw" />
-      ),
-    },
-    {
-      name: "Type Script",
-      icon: <ImageIcon src={typescriptLogoPath} alt="TypeScript logo" />,
-    },
-    {
-      name: "Java Script",
-      icon: <FontAwesomeIcon icon={faJs} className="fa-fw" size="3x" />,
-    },
-    {
-      name: "Node.js",
-      icon: <FontAwesomeIcon icon={faNodeJs} className="fa-fw" size="3x" />,
-    },
-    {
-      name: "Chakra UI (design system)",
-      icon: <ImageIcon src={chakraLogoPath} alt="Chakra UI logo" />,
-    },
-    {
-      name: "JSX",
-      icon: (
-        <Text
-          fontFamily="mono"
-          fontSize="3xl"
-          fontWeight="extrabold"
-          letterSpacing="tighter"
-        >
-          JSX
-        </Text>
-      ),
-    },
-  ];
+  useEffect(() => {
+    if (ref.current) {
+      const width = (ref.current as HTMLElement).scrollWidth;
+      setGalleryWidth(width);
+    }
+  }, [ref]);
+
+  // Consider investing in Motion+ to use its dedicated Ticker component here
+  // For now, this solution will suffice
+  const loopGap = 50;
+  const duration = 20;
+  const multiplier = 1 - 0.025 * duration;
 
   return (
-    <Container justifySelf="center" maxW="8xl">
-      <SimpleGrid columns={{ base: 3, md: 7 }} gap="4">
-        {skills.map((skill) => (
-          <Card.Root
-            size="sm"
-            cursor="default"
-            key={skill.name}
-            textAlign="center"
-          >
-            <Card.Body
-              gap="3"
-              alignItems="center"
-              justifyContent="space-around"
-              py="3"
-            >
-              {skill.icon}
-              <Card.Description fontSize={skill.name.length > 12 ? "xs" : "sm"}>
-                {skill.name}
-              </Card.Description>
-            </Card.Body>
-          </Card.Root>
-        ))}
-      </SimpleGrid>
+    <Container ref={ref} width="full" maxW="8xl" overflowX="hidden" p="0px">
+      <motion.div
+        initial={{ x: 0 }}
+        animate={{ translateX: -(galleryWidth / 2) - loopGap * multiplier }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "linear",
+        }}
+      >
+        <HStack
+          style={{ willChange: "transform" }}
+          gap={`${loopGap}px`}
+          alignItems="flex-start"
+          p="0px"
+        >
+          <SkillList skills={skills} />
+          {/* Duplicate for seamless scrolling: */}
+          <SkillList skills={skills} />
+        </HStack>
+      </motion.div>
     </Container>
   );
 };

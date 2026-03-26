@@ -38,13 +38,13 @@ const HivesSection = () => {
               <Image
                 maxW="200px"
                 src="static/hives_dark.png"
-                alt="Hives screenshot light mode"
+                alt="Hives.co logo"
               />
             ) : (
               <Image
                 maxW="200px"
                 src="static/hives_light.png"
-                alt="Hives screenshot dark mode"
+                alt="Hives.co logo"
               />
             )}
             <Stack gap="2">
