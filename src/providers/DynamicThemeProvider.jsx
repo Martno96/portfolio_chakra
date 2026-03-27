@@ -1,12 +1,9 @@
-import chroma from 'chroma-js';
 import { ThemeProvider } from 'next-themes';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   ChakraProvider,
   createSystem,
   defaultConfig,
-  defineConfig,
-  defineRecipe,
 } from '@chakra-ui/react';
 import { DynamicThemeContext } from '@/contexts/themeContext';
 

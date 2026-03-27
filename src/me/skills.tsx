@@ -47,8 +47,8 @@ export const skills: Skill[] = [
         <ImageIcon
           src={hookFormLogoPath}
           alt="React Hook Form logo"
-          boxSize="3.5em"
-          margin="-0em auto auto auto"
+          boxSize="3.0em"
+          margin="auto auto 0.1em auto"
         />
       </Box>
     ),
@@ -72,18 +72,18 @@ export const skills: Skill[] = [
     ),
   },
   {
-    name: "Chakra UI (design system)",
+    name: "Chakra UI",
     icon: <ImageIcon src={chakraLogoPath} alt="Chakra UI logo" />,
   },
   {
-    name: "(charting library)",
+    name: "",
     icon: (
       <Text
         fontSize="md"
         fontWeight="extrabold"
         whiteSpace="nowrap"
         pt="2"
-        pb="4"
+        pb="3"
         transform="scale(1, 1.25)"
       >
         {`< Recharts />`}
@@ -91,7 +91,7 @@ export const skills: Skill[] = [
     ),
   },
   {
-    name: "Motion.js (formerly Framer Motion)",
+    name: "Motion.js",
     icon: (
       <ImageIcon
         src={motionLogoPath}

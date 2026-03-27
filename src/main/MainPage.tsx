@@ -14,6 +14,7 @@ const MainPage = () => {
   //> Make language selection a Menu and dark/light mode a switch
   //
   //--- LATER ---
+  //> Have SkillGallery switch to Chakra's own Marquee https://www.chakra-ui.com/docs/components/marquee
   //> Find and use proper svg icons for TS and Chakra UI
   //> Remove overflowY="auto" to make ultrawide screens get default main scrollbar
   //> Align ALL content with Separator width, Kenny recommends

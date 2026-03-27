@@ -1,4 +1,4 @@
-import { Box, Card, Container, HStack } from "@chakra-ui/react";
+import { Box, Card, Container, HStack, Wrap } from "@chakra-ui/react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { skills } from "./skills";
@@ -16,11 +16,11 @@ const SkillList = ({ skills }: { skills: Skill[] }) => (
     justifyContent="flex-start"
     style={{ willChange: "transform" }}
   >
-    {skills.map((skill) => (
+    {skills.map((skill, index) => (
       <Card.Root
         size="sm"
         cursor="default"
-        key={skill.name}
+        key={index}
         textAlign="center"
         variant="outline"
         border="none"
@@ -35,13 +35,22 @@ const SkillList = ({ skills }: { skills: Skill[] }) => (
           height="full"
           style={{ willChange: "transform" }}
         >
-          <Box opacity="0.5" style={{ willChange: "transform" }}>
+          <Box opacity="0.5" height="60px" style={{ willChange: "transform" }}>
             {skill.icon}
           </Box>
           <Card.Description
             width="min-content"
-            minW="100px"
-            fontSize={skill.name.length > 12 ? "sm" : "md"}
+            whiteSpace="wrap"
+            minW="90px"
+            lineHeight="shorter"
+            wordBreak="auto-phrase"
+            fontSize={
+              skill.name.length > 10
+                ? skill.name.length > 18
+                  ? "sm"
+                  : "md"
+                : "lg"
+            }
             color="fg.muted"
             style={{ willChange: "transform" }}
           >
@@ -64,8 +73,10 @@ const SkillGallery = () => {
     }
   }, [ref]);
 
-  // Consider investing in Motion+ to use its dedicated Ticker component here
-  // For now, this solution will suffice
+  //TODO: Since last I had checked, Chakra apparently already released a premade component for all this x,D
+  //https://www.chakra-ui.com/docs/components/marquee
+  //I should switch to it, since it has built-in pause on hover, etc.
+
   const loopGap = 50;
   const duration = 20;
   const multiplier = 1 - 0.025 * duration;
@@ -89,8 +100,10 @@ const SkillGallery = () => {
           p="0px"
         >
           <SkillList skills={skills} />
-          {/* Duplicate for seamless scrolling: */}
-          <SkillList skills={skills} />
+          <SkillList
+            //Duplicate for seamless scrolling!
+            skills={skills}
+          />
         </HStack>
       </motion.div>
     </Container>
