@@ -1,12 +1,19 @@
 import { Box, Text } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReact, faJs, faNodeJs } from "@fortawesome/free-brands-svg-icons";
+import {
+  faReact,
+  faJs,
+  faNodeJs,
+  faGitAlt,
+  faNpm,
+} from "@fortawesome/free-brands-svg-icons";
 import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
 const chakraLogoPath = "/static/logo.svg";
 const typescriptLogoPath = "/static/typescript_logo.png";
 const tanstackLogoPath = "/static/tanstack_logo_black.svg";
 const hookFormLogoPath = "/static/react_hook_form_logo.svg";
 const motionLogoPath = "/static/motion_logo.svg";
+const i18NextLogoPath = "/static/i18next_logo.svg";
 import ImageIcon from "../components/ImageIcon";
 import SkillTextIconWrapper from "./SkillTextIconWrapper";
 
@@ -25,11 +32,11 @@ export const skills: Skill[] = [
     icon: <FontAwesomeIcon icon={faHandPointer} size="3x" className="fa-fw" />,
   },
   {
-    name: "Java Script",
+    name: "JavaScript",
     icon: <FontAwesomeIcon icon={faJs} className="fa-fw" size="3x" />,
   },
   {
-    name: "Type Script",
+    name: "TypeScript",
     icon: <ImageIcon src={typescriptLogoPath} alt="TypeScript logo" />,
   },
   {
@@ -72,6 +79,18 @@ export const skills: Skill[] = [
     ),
   },
   {
+    name: "Git",
+    icon: <FontAwesomeIcon icon={faGitAlt} className="fa-fw" size="3x" />,
+  },
+  {
+    name: "",
+    icon: <FontAwesomeIcon icon={faNpm} className="fa-fw" size="3x" />,
+  },
+  {
+    name: "i18next",
+    icon: <ImageIcon src={i18NextLogoPath} alt="i18next logo" />,
+  },
+  {
     name: "Chakra UI",
     icon: <ImageIcon src={chakraLogoPath} alt="Chakra UI logo" />,
   },
@@ -84,7 +103,7 @@ export const skills: Skill[] = [
         whiteSpace="nowrap"
         pt="2"
         pb="3"
-        transform="scale(1, 1.25)"
+        transform="scale(0.9, 1.15)"
       >
         {`< Recharts />`}
       </Text>

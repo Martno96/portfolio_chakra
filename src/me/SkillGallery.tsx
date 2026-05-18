@@ -47,11 +47,11 @@ const SkillList = ({ skills }: { skills: Skill[] }) => (
             fontSize={
               skill.name.length > 10
                 ? skill.name.length > 18
-                  ? "sm"
-                  : "md"
-                : "lg"
+                  ? "xs"
+                  : "sm"
+                : "md"
             }
-            color="fg.muted"
+            color="fg.subtle"
             style={{ willChange: "transform" }}
           >
             {skill.name}
